@@ -3,7 +3,8 @@ const Schema=mongoose.Schema
  
 const testSchema= new Schema({
    name:String,
-   price:String,
+   price:Number,
+   description: String,
    normal_value:String
 })
  
