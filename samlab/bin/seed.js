@@ -1,17 +1,17 @@
 const mongoose = require("mongoose");
-const CelebrityModel = require("../model/celebrity");
+const testModel = require("../models/Tests");
 
-mongoose
-    .connect(process.env.MONGO_URI, {
-        useNewUrlParser: true,
-        useCreateIndex: true
-    })
-    .then(x => {
-    console.log(`Connected to Mongo! Database name: "${process.env.MONGO_URI}"`)
-    })
-    .catch(err => {
-    console.error('Error connecting to mongo', err)
-    });
+// mongoose
+//     .connect(process.env.MONGO_URI, {
+//         useNewUrlParser: true,
+//         useCreateIndex: true
+//     })
+//     .then(x => {
+//     console.log(`Connected to Mongo! Database name: "${process.env.MONGO_URI}"`)
+//     })
+//     .catch(err => {
+//     console.error('Error connecting to mongo', err)
+//     });
 
 
     const tests = [
@@ -78,3 +78,10 @@ mongoose
     ];
 
 
+    function createTests(data) {
+        testModel.create(data, function(err, ans) {
+            console.log('Tests are entered in the database!');
+        });
+    }
+    
+    createTests(tests);
