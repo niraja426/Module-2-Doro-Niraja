@@ -7,7 +7,8 @@ body {
   }
 
 a {
-  color: #00B7FF; }
+  color: #00B7FF;
+  text-decoration: none; }
 
 /*# sourceMappingURL=style.css.map */
 .nav-container{
