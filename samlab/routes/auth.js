@@ -29,5 +29,29 @@ router.post("/signup", (req, res, next) => {
 });
 
 
+router.post("/login", (req, res, next) => {
+  const user = req.body;
+
+  userModel
+    .findOne({ email:user.email })
+    .then(dbRes => {
+      if (!user) {
+        res.render("login", { errorMsg: "Bad username or password" });
+        return;
+      }
+      if (bcrypt.compareSync(user.password, dbRes.password)) {
+        // req.session.currentUser = user;
+        res.render("user",{user:dbRes});
+        return;
+      } else {
+        res.render("login", { errorMsg: "Bad username or password" });
+        return;
+      }
+    })
+    .catch(dbErr => {
+      next(dbErr);
+    });
+});
+
 
   module.exports = router;
