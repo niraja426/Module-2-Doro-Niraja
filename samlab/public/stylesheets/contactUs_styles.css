@@ -26,6 +26,24 @@
     color: #eee;
 }
 
+#sent_container {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    height: 150px;
+    margin: 60px 0;
+    padding: 20px;
+}
+#img_title {
+    align-self: center;
+    background-color: #00B7FF;
+    color: white;
+    
+    height: 200px;
+    text-align: center;
+    width: 103%;
+    padding-top: 30px;
+}
 
 
 /* --- classes --- */

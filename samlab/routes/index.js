@@ -1,7 +1,7 @@
 const express = require('express');
 const router  = express.Router();
 
-/* GET home page */
+/* --- GET home page --- */
 router.get('/', (req, res, next) => {
   res.render('index');
 });
@@ -18,7 +18,9 @@ router.get("/login",(req, res, next) =>{
   res.render("login");
 });
 
-router.get("/contact/message_sent", (req, res, next) => {
+
+/* --- POST home page reqests --- */
+router.post("/message-sent", (req, res, next) => {
   res.render("message_sent");
 })
 
