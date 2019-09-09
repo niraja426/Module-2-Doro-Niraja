@@ -60,11 +60,10 @@ app.locals.title = 'XYZ Laboratory Clinic'
 const index = require('./routes/index');
 app.use('/', index);
 
-// const celebrities=require('./routes/celebrities');
-// app.use('/celebrities/',celebrities);
+const auth=require("./routes/auth")
+app.use(auth);
 
-// const movies=require('./routes/movies');
-// app.use('/movies/',movies);
-
+const user=require("./routes/user")
+app.use(user);
 
 module.exports = app;

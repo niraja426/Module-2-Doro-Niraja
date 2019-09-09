@@ -1,3 +1,7 @@
+*{
+  box-sizing: border-box;
+}
+
 body {
  
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; }
@@ -13,13 +17,14 @@ a {
 /*# sourceMappingURL=style.css.map */
 .nav-container{
   display:flex;
-  height:100px
+  height:100px;
+  /* position: fixed; */
 }
 
 
 .nav-logo{
     width:30%;
-  ;
+
 }
 .nav-logo img{
   height:100%;
@@ -66,8 +71,8 @@ a {
 
 .note1{
   background: rgb(54, 168, 235);
-  width:20%;
-  height:150px;
+  width:25%;
+  height:200px;
   margin-right:10px; 
   padding:20px;
   border:2px solid white;
@@ -75,8 +80,8 @@ a {
 }
 .note2{
   background:#088EDD;
-  width:20%;
-  height:150px;
+  width:25%;
+  height:200px;
   margin-right:10px;
   padding:20px;
   border:2px solid white;
@@ -85,8 +90,8 @@ a {
 }
 .note3{
   background:#1977CC;
-  width:20%;
-  height:150px;
+  width:25%;
+  height:200px;
   margin-right:20px;  
   padding:20px;
   border:2px solid white;
@@ -233,4 +238,36 @@ a {
     padding:5px;
     width:170px;
     border-radius: 6px;
+  }
+
+  .input-text{
+   border: none;
+   border-bottom: 1px solid #29889B;
+  }
+
+
+  .welcome-user{
+    color:white;
+    font-size:30px; 
+  }
+
+  .welcome-container{
+    display: flex;
+      background:rgba(41, 136, 167, 1);
+      color:black;
+      height:200px;
+      padding: 10px 0 0 75px;
+    }
+
+    .table-head {
+      width: 30%;
+      border: 1px solid;
+      padding: 1rem;
+      text-align: left;
+      font-weight: 600;
+    }
+  .edit-btn{
+    font-size: 17px;
+    text-align:right;
+    
   }
