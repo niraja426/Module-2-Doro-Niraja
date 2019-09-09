@@ -1,3 +1,4 @@
+require("../config/mongodb")
 const mongoose = require("mongoose");
 const testModel = require("../models/Tests");
 
@@ -79,8 +80,10 @@ const testModel = require("../models/Tests");
 
 
     function createTests(data) {
-        testModel.create(data, function(err, ans) {
-            console.log('Tests are entered in the database!');
+        testModel.insertMany(data, function(err, ans) {
+            if(!err)console.log('Tests are entered in the database!');
+            else console.log(err)
+            
         });
     }
     
