@@ -1,0 +1,36 @@
+
+/* --- id --- */
+#form_container {
+    align-items: flex-start;
+    display: flex;
+    flex-direction: column;
+    margin-left: 300px;
+    padding: 50px;
+}
+#form_container input, textarea {
+    border: 1px solid #506171;
+    border-radius: 5px;
+    margin: 5px 0;
+    padding: 3px 5px;
+    width: 200px;
+}
+#form_container textarea {
+    font-family: Lucida Grande, Helvetica, Arial, sans-serif;
+    width: 350px;
+    height: 150px;
+}
+#btn_submit {
+    background-color: #506171;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    color: #eee;
+}
+
+
+
+/* --- classes --- */
+
+
+
+
