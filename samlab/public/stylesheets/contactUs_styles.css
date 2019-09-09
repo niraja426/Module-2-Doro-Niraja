@@ -1,17 +1,16 @@
 
 /* --- id --- */
 #form_container {
-    align-items: flex-start;
+    align-items: center;
     display: flex;
     flex-direction: column;
-    margin-left: 300px;
-    padding: 50px;
+    margin-left: 50px;
 }
 #form_container input, textarea {
-    border: 1px solid #506171;
-    border-radius: 5px;
+    border: none;
+    border-bottom: 1px solid #29889B;
     margin: 5px 0;
-    padding: 3px 5px;
+    padding: 3px 0;
     width: 200px;
 }
 #form_container textarea {
@@ -20,7 +19,7 @@
     height: 150px;
 }
 #btn_submit {
-    background-color: #506171;
+    background-color: #29889B;
     border: none;
     border-radius: 5px;
     padding: 5px 10px;
@@ -30,6 +29,24 @@
 
 
 /* --- classes --- */
+.form_contact {   
+    box-shadow:5px 5px 5px 5px grey; 
+    margin-left: 400px;
+    padding: 20px;
+    width:40%;
+
+}
+.form_contact-header {
+    text-align: center;
+
+}
+
+
+
+
+
+
+
 
 
 

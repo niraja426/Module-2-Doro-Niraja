@@ -1,21 +1,30 @@
 <div id="contact-us_container">
-    <form id="form_container" action="" method="POST">
-        <label for="name"> Full Name: </label>
-        <input id="name" type="text" placeholder="Enter full name" name="username">
+    <div class="form_contact">
 
-        <label for="email"> Email: </label>
-        <input id="email" type="email" placeholder="Enter email address" name="email">
+        <header class="form_contact-header">
+            <h1 class="form-title" style="color:#29889B"> Contact Us </h1>
+            <p class="form-subtitle">Please enter your message below </p>
+        </header>
 
-            <label for="phone"> Phone: </label>
-        <input id="phone" type="number" placeholder="Enter phone number" name="phone">
+        <form id="form_container" action="/contact_us_message" method="POST" enctype="multipart/form-data">
+            <label for="name"> Full Name: </label>
+            <input id="name" type="text" placeholder="Enter full name" name="username" value="Dori Doro">
 
-        <label for="subject"> Subject: </label>
-        <input id="subject" type="text" placeholder="Enter your subject" name="subject">
+            <label for="email"> Email: </label>
+            <input id="email" type="email" placeholder="Enter email address" name="email" value="doro@gmailcom">
 
-        <label for="message"> Message: </label>
-        <textarea placeholder="Enter your message" name="message"></textarea>
+                <label for="phone"> Phone: </label>
+            <input id="phone" type="phone" placeholder="Enter phone number" name="phone" value="+33 74 58 52 14">
 
-        <button id="btn_submit" type="submit"> Send Message </button>
+            <label for="subject"> Subject: </label>
+            <input id="subject" type="text" placeholder="Enter your subject" name="subject" value="subject">
 
-    </form>
+            <label for="message"> Message: </label>
+            <textarea placeholder="Enter your message" name="message" > this is a message </textarea>
+            
+            <button id="btn_submit" type="submit"> Send Message </button>
+
+        </form>
+        
+    </div>
 </div>
