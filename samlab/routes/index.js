@@ -1,5 +1,7 @@
 const express = require('express');
 const router  = express.Router();
+const testModel=require("./../models/Tests")
+const userModel=require("./../models/Users")
 
 /* --- GET home page --- */
 router.get('/', (req, res, next) => {
@@ -25,25 +27,20 @@ router.post("/message-sent", (req, res, next) => {
 })
 
 
-// router.post('/submittest', (req, res,next) => {
- 
+router.post('/submittest/:id', (req, res,next) => {
+const {testList}=req.body;
+console.log(req.body)
+ console.log(req.session.currentUser)
+//  userModel.findById(req.params.id)
+//  .then(()=>{
+//   const newTest=new testModel({
+//     test_ids:testList,
+//     user_id:req.params.id
+    
+//   })
 
-
-//    const newMovie=new movieModel({
-//      title:req.body.title,
-//      genre:req.body.genre,
-//      plot:req.body.plot
-//    })
-//    .save()
-//    .then((dbRes)=>{
-//      res.redirect('/movies');
-//    })
-//    .catch((error)=>{
-//        console.log("cannot save the movie properly")
-//        res.redirect('/movies/newmovie')
-//    })
-
-//  });
+//  })
+    });
 
 
 

@@ -37,7 +37,14 @@
   }
 
   .table-container{
+    display:flex;
+    flex-direction: column;
     width:70%;
+  }
+
+  .refresh{
+    margin-top:20px;
+    font-size: 20px;
   }
 
   .test-container{
@@ -118,7 +125,5 @@
     text-align:center;
 }
 
-.refresh{
-  justify-content: left;
-}
+
 
