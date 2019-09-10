@@ -23,7 +23,7 @@
    <div class="test-container">
     <h3>AVAILABLE TESTS</h3>
     <hr>
-    <form action="/submittest" method="post">
+    <form action="/submittest/{{user._id}}" method="post">
        <ul >
       {{#each tests}}
       <li class="listHolder"> 
@@ -50,6 +50,11 @@
   </div>
 
 <div class="table-container"> 
+
+   <div class="refresh">
+      <a href="#"><i class="fas fa-sync-alt"></i></a> 
+   </div>
+
     <table class="main-table" >
     <thead>
       <tr class="table-row">
@@ -108,9 +113,6 @@
       
     </tbody>
   </table>
-  <div>
-    <button class="refresh">REFRESH</button>
-  </div>
 
   </div>
 
