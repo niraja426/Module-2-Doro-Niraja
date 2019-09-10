@@ -1,4 +1,4 @@
-require("../config/mongodb")
+require("../config/mongodb");
 const mongoose = require("mongoose");
 const testModel = require("../models/Tests");
 

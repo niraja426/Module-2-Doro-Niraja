@@ -32,30 +32,30 @@ router.post("/signup", (req, res, next) => {
 
 router.post("/login", (req, res, next) => {
   const user = req.body;
-  testList={};
-  a=1;
 
   userModel
     .findOne({ email:user.email })
     .then(dbRes => {
-      if (!user) {
+      if (!dbRes) {
         res.render("login", { errorMsg: "Bad username or password" });
         return;
       }
       if (bcrypt.compareSync(user.password, dbRes.password)) {
-          a=2;
+        req.session.currentUser = dbRes;
+        
           testModel.find()
-          .then((dbRes)=>{
-              testList=dbRes;
-              a=3;
+          .then((testList)=>{
+              res.render("user",{ tests:testList, user:req.session.currentUser});
               // console.log(testList)
            })
-           .then((dbRes)=>{
-             res.render("user",{user:dbRes,tests:testList});//I needed two then because the scope of testList was not visible once it was outside of the testModel.find() promise. so I had to immediately put then after it got the data and in the second then, i rendered it
-           })
+          //  .then((dbRes)=>{
+          //    res.render("user",{user:dbRes, tests:testList});//I needed two then because the scope of testList was not visible once it was outside of the testModel.find() promise. so I had to immediately put then after it got the data and in the second then, i rendered it
+          //  })
          .catch((err)=>{
           console.log("couldnot retrive the tests")
       })
+
+
         
         return;
       } 
