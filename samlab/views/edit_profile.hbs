@@ -1,0 +1,39 @@
+ <div class="welcome-container">
+      <div class="user-image"> 
+          <i class="fas fa-user-circle"></i>
+      </div> 
+      {{!-- end of golo image div --}}
+
+    <div class="welcome-user">
+        <form action="/edit/{{user._id}}" method="post">
+            <h3> Update your profile: {{user.username}}</h3>
+            <div id="container_edit">
+                <label for="name"> Full name: </label>
+                <input id="name" type="text" name="name" value="{{ user.username }}">
+
+                <label for="email"> Email: </label>
+                <input id="email" type="email" name="email" value="{{ user.email }}">
+
+                <label for="password"> Password: </label>
+                <input id="password" type="password" name="password" value="123456789">
+
+                <label for="address"> Address: </label>
+                <input id="address" type="text" name="address" value="{{ user.address }}">
+
+                <label for="phone"> Contact No: </label>
+                <input id="phone" type="phone" name="phone" value="{{ user.phone }}">
+            </div>
+{{!-- 
+      	    <p><i class="fas fa-envelope-open-text"></i> {{ user.email }} </a>&nbsp; &nbsp; &nbsp;
+              <i class="fas fa-phone-square"></i> {{ user.phone}} </p>
+			<p><i class="fas fa-map-marked-alt"></i> {{ user.address }}</p> --}}
+        </form>
+    </div>
+
+    
+
+    <div>
+      <a href="/login/{{user._id}}"><button class="edit-btn"> SAVE CHANGES</button></a>
+    </div>
+    
+</div>

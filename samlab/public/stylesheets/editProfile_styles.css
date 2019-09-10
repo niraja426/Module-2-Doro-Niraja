@@ -1,0 +1,7 @@
+
+/* --- id --- */
+#container_edit {
+    display: flex;
+    flex-direction: column;
+
+}
