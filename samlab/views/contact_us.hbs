@@ -8,19 +8,19 @@
 
         <form id="form_container" action="/message-sent" method="POST" enctype="multipart/form-data">
             <label for="name"> Full Name: </label>
-            <input id="name" type="text" placeholder="Enter full name" name="username" value="Dori Doro">
+            <input id="name" type="text" placeholder="Enter full name" name="username" required value="Dori Doro">
 
             <label for="email"> Email: </label>
-            <input id="email" type="email" placeholder="Enter email address" name="email" value="doro@gmail.com">
+            <input id="email" type="email" placeholder="Enter email address" name="email" required value="doro@gmail.com">
 
                 <label for="phone"> Phone: </label>
-            <input id="phone" type="phone" placeholder="Enter phone number" name="phone" value="+977 7 585214">
+            <input id="phone" type="phone" placeholder="Enter phone number" name="phone" required value="+977 7 585214">
 
             <label for="subject"> Subject: </label>
-            <input id="subject" type="text" placeholder="Enter your subject" name="subject" value="subject">
+            <input id="subject" type="text" placeholder="Enter your subject" name="subject" required value="subject">
 
             <label for="message"> Message: </label>
-            <textarea placeholder="Enter your message" name="message" > this is a message </textarea>
+            <textarea placeholder="Enter your message" required name="message" > this is a message </textarea>
             
             <button id="btn_submit" type="submit"> Send Message </button>
 
