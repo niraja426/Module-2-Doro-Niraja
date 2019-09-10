@@ -22,21 +22,19 @@
             <h1 class="form-title" style="color:#29889B"> Update your profile: </h1>
         </header>
 
-        <form id="form_container" action="/edit/{{user._id}}" method="post">
+        <form id="form_container" action="/login/{{user._id}}" method="post">
             <label for="name"> Full name: </label>
-            <input id="name" type="text" name="name" value="{{ user.username }}">
+            <input id="name" type="text" name="username" value="{{ user.username }}">
 
             <label for="email"> Email: </label>
             <input id="email" type="email" name="email" value="{{ user.email }}">
 
-            <label for="password"> Password: </label>
-            <input id="password" type="password" name="password" value="123456789">
 
             <label for="address"> Address: </label>
             <input id="address" type="text" name="address" value="{{ user.address }}">
 
             <label for="phone"> Contact No: </label>
-            <input id="phone" type="phone" name="phone" value="+{{ user.phone }}">
+            <input id="phone" type="tel" name="phone" value="+{{ user.phone }}">
 
             <a href="/login/{{user._id}}"><button class="edit-btn"> SAVE CHANGES</button></a>
         </form>
