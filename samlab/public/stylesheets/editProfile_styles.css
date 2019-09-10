@@ -1,7 +1,18 @@
 
 /* --- id --- */
+#logged-user-name{
+    font-family: 'Pacifico', cursive;
+}
 #container_edit {
     display: flex;
     flex-direction: column;
+    line-height: 2.2;
+}
+#container_edit input {
+    padding-left: 5px;
+}
 
+/* --- classes --- */
+.addition_margin {
+    margin-top: 20px;
 }
