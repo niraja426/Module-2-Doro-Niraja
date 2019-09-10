@@ -5,6 +5,7 @@
 }
 #container_edit {
     display: flex;
+    align-items: center;
     flex-direction: column;
     line-height: 2.2;
 }
@@ -15,4 +16,9 @@
 /* --- classes --- */
 .addition_margin {
     margin-top: 20px;
+}
+
+.item {
+    width: 33.3%;
+    border: 1px solid red;
 }

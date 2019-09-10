@@ -22,4 +22,15 @@ router.get('/login/:id', (req, res, next) => {
 });
 
 
+/* POST request of home page */
+
+router.post('/login/:id', (req, res, next) => {
+  userModel.findByIdAndUpdate(req.params.id, req.body)
+  .then((dbRes) => {
+    res.redirect('/login')
+  })
+  .catch((dbErr) => {console.log("there occured an error", dbErr)}
+  )
+});
+
 module.exports = router;
