@@ -1,6 +1,7 @@
 const express = require("express");
 const router = new express.Router();
 const userModel=require("./../models/Users")
+const testModel=require("./../models/Tests")
 const  bcrypt=require("bcrypt")
 
 
@@ -31,6 +32,8 @@ router.post("/signup", (req, res, next) => {
 
 router.post("/login", (req, res, next) => {
   const user = req.body;
+  testList={};
+  a=1;
 
   userModel
     .findOne({ email:user.email })
@@ -40,10 +43,24 @@ router.post("/login", (req, res, next) => {
         return;
       }
       if (bcrypt.compareSync(user.password, dbRes.password)) {
-        // req.session.currentUser = user;
-        res.render("user",{user:dbRes});
+          a=2;
+          testModel.find()
+          .then((dbRes)=>{
+              testList=dbRes;
+              a=3;
+              // console.log(testList)
+           })
+           .then((dbRes)=>{
+             res.render("user",{user:dbRes,tests:testList});//I needed two then because the scope of testList was not visible once it was outside of the testModel.find() promise. so I had to immediately put then after it got the data and in the second then, i rendered it
+           })
+         .catch((err)=>{
+          console.log("couldnot retrive the tests")
+      })
+        
         return;
-      } else {
+      } 
+      
+      else {
         res.render("login", { errorMsg: "Bad username or password" });
         return;
       }
@@ -51,6 +68,7 @@ router.post("/login", (req, res, next) => {
     .catch(dbErr => {
       next(dbErr);
     });
+    
 });
 
 
