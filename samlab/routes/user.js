@@ -2,7 +2,9 @@ const express = require('express');
 const router  = express.Router();
 const userModel=require("./../models/Users")
 const testModel = require("../models/Tests")
+const userTest = require("../models/User_test")
 const bcrypt = require("bcrypt")
+
 /* GET home page */
 router.get('/user', (req, res, next) => {
   testModel.find()
@@ -12,9 +14,7 @@ router.get('/user', (req, res, next) => {
       res.render("user",{ tests:testList, user:req.session.currentUser});
       // console.log(testList)
    })
-  //  .then((dbRes)=>{
-  //    res.render("user",{user:dbRes, tests:testList});//I needed two then because the scope of testList was not visible once it was outside of the testModel.find() promise. so I had to immediately put then after it got the data and in the second then, i rendered it
-  //  })
+  
  .catch((err)=>{
   console.log("couldnot retrive the tests")
 });
@@ -23,7 +23,6 @@ router.get('/user', (req, res, next) => {
 
 router.get('/login/:id', (req, res, next) => {
   console.log('body:', req.body, 'id:', req.params.id);
-  
   userModel.findById( {_id:req.params.id} )
   .then((dbRes) => {
     res.render('edit_profile', {user:dbRes})
@@ -53,5 +52,37 @@ console.log(req.body  , "here")
   .catch((dbErr) => {console.log("there occured an error", dbErr)}
   )
 });
+
+
+// capturing the ajax request
+router.post("/user/test-submit", (req,res)=>{
+  //console.log(req.body);
+  // req.body holds the values stored in variablename "data" coming from axios post request
+  // now, we enter this data(checked tests ) into database "user_test"
+   userTest.create({
+        user_id: req.params.id,
+        test_ids: req.body.data,
+        status:"Pending",
+        date: new Date()
+      })
+      .then(dbRes => { //upon successful insertion of data into database,we search for these corresponding ids(which was in "data" variable) in the tests collection 
+          console.log(dbRes)
+          testModel.find({'_id': { $in: dbRes.test_ids}})
+          .then((dbResafterFind)=>{//after successful finding of these tests ,we send the find result(dbResafterFind) and dbRes in variable names "tests"and "userTests" respectively back to ajax
+            res.send({tests:dbResafterFind, userTests:dbRes})// now go back to axios
+
+          })
+          .catch((err)=>{
+            console.log(err)
+          })
+    
+         
+      })
+      .catch(err => console.log(err))
+
+      
+      
+})
+
 
 module.exports = router;

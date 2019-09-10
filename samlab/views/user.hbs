@@ -23,11 +23,11 @@
    <div class="test-container">
     <h3>AVAILABLE TESTS</h3>
     <hr>
-    <form action="/submittest/{{user._id}}" method="post">
+    {{!-- <form action="/submittest/{{user._id}}" method="post"> --}}
        <ul >
       {{#each tests}}
       <li class="listHolder"> 
-        <input type="checkbox" name="testList" value="{{this._id}}"> {{this.name}}
+        <input class="testCheckBox" type="checkbox" name="testList" value="{{this._id}}"> {{this.name}}
          <span class="popup">
            <div class="popup-title">
               <h3>{{this.name}}</h3>
@@ -41,10 +41,10 @@
       {{/each}}
     </ul>
     <div class="test-submit-button-container">
-       <button class="button-primary test">Submit</button>
+       <button class="button-primary test" id="test-submit" onclick="testSubmit()">Submit</button>
     </div>
     
-    </form>
+    {{!-- </form> --}}
    
 
   </div>
@@ -65,10 +65,10 @@
       </tr>
     </thead>
 
-    <tbody>
-      <tr class="table-row">
-      </tr>
-      <tr>
+    <tbody class="table-body">
+      {{!-- <tr class="table-row">
+      </tr> --}}
+      {{!-- <tr>
           <td class="table-division">Phospate in Blood</td>
           <td class="table-division">9-September-2019</td>
           <td class="table-division">Started</td>
@@ -103,13 +103,7 @@
           <td class="table-division">9-September-2019</td>
           <td class="table-division">Started</td>
            <td> <a href=""><i class="fas fa-calendar-times"></i> </a></td>
-      </tr>
-        <tr>
-          <td class="table-division">Troponin Test</td>
-          <td class="table-division">9-September-2019</td>
-          <td class="table-division">Started</td>
-           <td> <a href=""><i class="fas fa-calendar-times"></i> </a></td>
-      </tr>
+      </tr> --}}
       
     </tbody>
   </table>
