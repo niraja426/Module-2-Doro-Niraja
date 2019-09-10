@@ -1,43 +1,47 @@
  <div class="welcome-container">
-      <div class="user-image"> 
+      <div class="user-image item"> 
           <i class="fas fa-user-circle"></i>
       </div> 
       {{!-- end of golo image div --}}
 
-    <div class="welcome-user">
-        <form action="/edit/{{user._id}}" method="post">
-            <h3> Update your profile: {{user.username}}</h3>
-            <div id="container_edit">
-                <label for="name"> Full name: </label>
-                <input id="name" type="text" name="name" value="{{ user.username }}">
-
-                <label for="email"> Email: </label>
-                <input id="email" type="email" name="email" value="{{ user.email }}">
-
-                <label for="password"> Password: </label>
-                <input id="password" type="password" name="password" value="123456789">
-
-                <label for="address"> Address: </label>
-                <input id="address" type="text" name="address" value="{{ user.address }}">
-
-                <label for="phone"> Contact No: </label>
-                <input id="phone" type="phone" name="phone" value="{{ user.phone }}">
-            </div>
+    <div class="welcome-user item">
+        <h3> Welcome <span id="logged-user-name"> {{user.username}} </span> </h3>
 {{!-- 
       	    <p><i class="fas fa-envelope-open-text"></i> {{ user.email }} </a>&nbsp; &nbsp; &nbsp;
               <i class="fas fa-phone-square"></i> {{ user.phone}} </p>
 			<p><i class="fas fa-map-marked-alt"></i> {{ user.address }}</p> --}}
-        </form>
     </div>
 
-    
-
-    <div>
-      <a href="/login/{{user._id}}"><button class="edit-btn"> SAVE CHANGES</button></a>
-    </div>
+    <div class="item"> <a href="#"></a> </div>
     
 </div>
 
-<div class="extra-space">
+<div id="container_edit">
+    <div class="form_contact addition_margin">
+        <header class="form_contact-header">
+            <h1 class="form-title" style="color:#29889B"> Update your profile: </h1>
+        </header>
 
+        <form id="form_container" action="/edit/{{user._id}}" method="post">
+            <label for="name"> Full name: </label>
+            <input id="name" type="text" name="name" value="{{ user.username }}">
+
+            <label for="email"> Email: </label>
+            <input id="email" type="email" name="email" value="{{ user.email }}">
+
+            <label for="password"> Password: </label>
+            <input id="password" type="password" name="password" value="123456789">
+
+            <label for="address"> Address: </label>
+            <input id="address" type="text" name="address" value="{{ user.address }}">
+
+            <label for="phone"> Contact No: </label>
+            <input id="phone" type="phone" name="phone" value="+{{ user.phone }}">
+
+            <a href="/login/{{user._id}}"><button class="edit-btn"> SAVE CHANGES</button></a>
+        </form>
+    </div>
+
+
+    <div class="extra-space"> </div>
 </div>

@@ -4,7 +4,8 @@
     align-items: center;
     display: flex;
     flex-direction: column;
-    margin-left: 50px;
+    align-items: center;
+    /* margin-left: 50px; */
 }
 #form_container input, textarea {
     border: none;
@@ -49,7 +50,7 @@
 /* --- classes --- */
 .form_contact {   
     box-shadow:5px 5px 5px 5px grey; 
-    margin-left: 400px;
+    /* margin-left: 400px; */
     padding: 20px;
     width:40%;
 

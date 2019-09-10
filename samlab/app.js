@@ -58,8 +58,8 @@ app.locals.title = 'XYZ Laboratory Clinic'
 app.use(session({
   secret: process.env.SESSION_SECRET,
   cookie: { maxAge: 60000 },
-  resave: false,
-  saveUninitialized: true,
+  resave: false,//to remove the error express-session undefined resave option
+  saveUninitialized: true,////to remove the error express-session undefined resave option
   store: new MongoStore({
     mongooseConnection: mongoose.connection,
     ttl: 24 * 60 * 60,
