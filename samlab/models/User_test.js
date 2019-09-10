@@ -3,13 +3,13 @@ const Schema=mongoose.Schema
  
 const userTestSchema= new Schema({
   user_id: {
-        type:mongoose.Schema.Types.ObjectId,
-        ref:"users"
+        type:Schema.Types.ObjectId,
+        ref:"user"
      },
-    test_id:Array,/// array of object
+    test_ids:[{type: Schema.Types.ObjectId, ref:"test"}],/// array of object
     date:Date(),
     status:String,
-
+    
 })
  
 const userTestModel=mongoose.model("userTest",userTestSchema);
