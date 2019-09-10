@@ -25,5 +25,30 @@ router.post("/message-sent", (req, res, next) => {
 })
 
 
+// router.post('/submittest', (req, res,next) => {
+ 
+
+
+//    const newMovie=new movieModel({
+//      title:req.body.title,
+//      genre:req.body.genre,
+//      plot:req.body.plot
+//    })
+//    .save()
+//    .then((dbRes)=>{
+//      res.redirect('/movies');
+//    })
+//    .catch((error)=>{
+//        console.log("cannot save the movie properly")
+//        res.redirect('/movies/newmovie')
+//    })
+
+//  });
+
+
+
+
+
+
 
 module.exports = router;

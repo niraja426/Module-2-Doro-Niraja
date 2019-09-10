@@ -5,9 +5,9 @@
       {{!-- end of golo image div --}}
 
     <div class="welcome-user">
-        <h3 >Welcome {{user.username}}</h3>
-      	<p><i class="fas fa-envelope-open-text"></i> info@xyzlab.com</a>&nbsp; &nbsp; &nbsp;<i class="fas fa-phone-square"></i> +977 1 5546684</p>
-			<p><i class="fas fa-map-marked-alt"></i> Haugal, Mangalbazar , Lalitpur</p>
+        <h3 >Welcome <span id="logged-user-name">{{user.username}}</span></h3>
+      	<p><i class="fas fa-envelope-open-text"></i> {{user.email}}</a>&nbsp; &nbsp; &nbsp;<i class="fas fa-phone-square"></i> {{user.phone}}</p>
+			<p><i class="fas fa-map-marked-alt"></i> {{user.address}}</p>
     </div>
 
     
@@ -23,7 +23,7 @@
    <div class="test-container">
     <h3>AVAILABLE TESTS</h3>
     <hr>
-    <form action="#">
+    <form action="/submittest" method="post">
        <ul >
       {{#each tests}}
       <li class="listHolder"> 
@@ -41,7 +41,7 @@
       {{/each}}
     </ul>
     <div class="test-submit-button-container">
-        <button class="button-primary test">Submit</button>
+       <button class="button-primary test">Submit</button>
     </div>
     
     </form>
@@ -108,6 +108,9 @@
       
     </tbody>
   </table>
+  <div>
+    <button class="refresh">REFRESH</button>
+  </div>
 
   </div>
 

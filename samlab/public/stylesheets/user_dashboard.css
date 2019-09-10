@@ -16,6 +16,10 @@
   .welcome-user h3{
     font-size:30px; 
   }
+
+  #logged-user-name{
+    font-family: 'Pacifico', cursive;
+  }
     .user-image{
         font-size: 120px;
         color:white;
@@ -112,5 +116,9 @@
 }
 .test-submit-button-container{
     text-align:center;
+}
+
+.refresh{
+  justify-content: left;
 }
 
