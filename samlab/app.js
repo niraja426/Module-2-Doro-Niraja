@@ -55,7 +55,14 @@ hbs.registerPartials(__dirname + "/views/partials");
 // default value for title local
 app.locals.title = 'XYZ Laboratory Clinic'
 
-
+app.use(session({
+  secret: process.env.SESSION_SECRET,
+  cookie: { maxAge: 60000 },
+  store: new MongoStore({
+    mongooseConnection: mongoose.connection,
+    ttl: 24 * 60 * 60 // 1 day
+  })
+}));
 
 const index = require('./routes/index');
 app.use('/', index);
