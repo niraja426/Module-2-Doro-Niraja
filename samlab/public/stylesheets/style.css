@@ -18,6 +18,7 @@ a {
 .nav-container{
   display:flex;
   height:100px;
+  background:rgba(41, 136, 155, 0.3)
   /* position: fixed; */
 }
 
@@ -27,7 +28,6 @@ h1, h2, h3 {
 }
 .nav-logo{
     width:30%;
-
 }
 .nav-logo img{
   height:100%;
@@ -106,9 +106,8 @@ h1, h2, h3 {
   margin-right:10px;
   padding:20px;
   border:2px solid white;
-
-
 }
+
 .note3{
   background:#1977CC;
   width:25%;
@@ -116,7 +115,6 @@ h1, h2, h3 {
   margin-right:20px;  
   padding:20px;
   border:2px solid white;
-
 }
 
 .note1:hover {
@@ -138,7 +136,6 @@ h1, h2, h3 {
   display: flex;
   widows: 100%;
   height: 300px;
-  border-top: 1px solid grey;
   margin-top: 10px;
 }
 
@@ -147,8 +144,6 @@ h1, h2, h3 {
   padding-left: 30px;
   padding-right: 20px;
   line-height: 24px;
-
- 
 }
 
 .about-image{
@@ -197,8 +192,6 @@ h1, h2, h3 {
 .footer-stayConnected{
   width:20%;
   height:100%;
-
-
 }
 
 .footer-contact i{
@@ -228,6 +221,7 @@ h1, h2, h3 {
   display:flex;
   justify-content: center;
   text-align:center;
+  margin-top:20px;
   }
 
   .button-link-form:hover {
@@ -238,7 +232,6 @@ h1, h2, h3 {
     color: rgb(52, 52, 255);
    padding-bottom: .1rem;
   }  
-
 
   .login-form{
     padding: 10px;
@@ -265,5 +258,9 @@ h1, h2, h3 {
   .input-text{
    border: none;
    border-bottom: 1px solid #29889B;
+  }
+
+  .loginIcon{
+    font-size: 45px;
   }
 
