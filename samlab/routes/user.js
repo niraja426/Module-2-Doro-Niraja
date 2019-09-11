@@ -17,10 +17,13 @@ router.get('/user', (req, res, next) => {
   .then(userTests => {
     testModel.find()
     .then(testList =>{
+   
         res.render("user",{
           tests: testList,
           user: req.session.currentUser,
-          userTests: userTests
+          userTests: userTests,
+
+          // scripts: ["pppp.js"]
         });
      })
   })

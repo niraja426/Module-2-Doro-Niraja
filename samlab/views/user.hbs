@@ -51,10 +51,6 @@
 
 <div class="table-container"> 
 
-   <div class="refresh">
-      <a href="#"><i class="fas fa-sync-alt"></i></a> 
-   </div>
-
     <table class="main-table" >
     <thead>
       <tr class="table-row">
@@ -67,57 +63,23 @@
 
     <tbody class="table-body">
       {{#each userTests}}
-        {{!-- {{#each this.tests_id}} --}}
-       
-        <tr>
-          {{#if this.tests_id}}
+        {{#each this.test_ids}}
+       <tr>
           <td class="table-division">{{this.name}}</td>
-          {{/if}}
-          <td class="table-division">{{this.date}}</td>
-          <td class="table-division">{{this.status}}</td>
+          <td class="table-division">{{../this.date}}</td>
+          <td class="table-division">{{../this.status}}</td>
           <td> <a href=""><i class="fas fa-calendar-times"></i> </a></td>
         </tr>
-        {{!-- {{/each}} --}}
+        {{/each}}
       {{/each}}
-      {{!-- <tr class="table-row">
-      </tr> --}}
-      {{!-- <tr>
-          <td class="table-division">Phospate in Blood</td>
-          <td class="table-division">9-September-2019</td>
-          <td class="table-division">Started</td>
-           <td> <a href=""><i class="fas fa-calendar-times"></i> </a></td>
-      </tr>
-       <tr>
-          <td class="table-division">Troponin Test</td>
-          <td class="table-division">9-September-2019</td>
-          <td class="table-division">Started</td>
-           <td> <a href=""><i class="fas fa-calendar-times"></i> </a></td>
-      </tr>
-      <tr>
-          <td class="table-division">Troponin Test</td>
-          <td class="table-division">9-September-2019</td>
-          <td class="table-division">Started</td>
-           <td> <a href=""><i class="fas fa-calendar-times"></i> </a></td>
-      </tr>
-      <tr>
-          <td class="table-division">Troponin Test</td>
-          <td class="table-division">9-September-2019</td>
-          <td class="table-division">Started</td>
-           <td> <a href=""><i class="fas fa-calendar-times"></i> </a></td>
-      </tr>
-      <tr>
-          <td class="table-division">Troponin Test</td>
-          <td class="table-division">9-September-2019</td>
-          <td class="table-division">Started</td>
-           <td> <a href=""><i class="fas fa-calendar-times"></i> </a></td>
-      </tr>
-        <tr>
-          <td class="table-division">Troponin Test</td>
-          <td class="table-division">9-September-2019</td>
-          <td class="table-division">Started</td>
-           <td> <a href=""><i class="fas fa-calendar-times"></i> </a></td>
-      </tr> --}}
       
+      <tr>
+          <td class="table-division">Phospate in Blood</td>
+          <td class="table-division">Wed Sep 11 2019 11:40:10 GMT+0200 (CEST)</td>
+          <td class="table-division">Started</td>
+           <td> <a href=""><i class="fas fa-calendar-times"></i> </a></td>
+      </tr>
+       
     </tbody>
   </table>
 
