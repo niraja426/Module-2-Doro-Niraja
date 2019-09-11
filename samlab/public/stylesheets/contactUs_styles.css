@@ -1,11 +1,17 @@
 
 /* --- id --- */
 #contact-us_container {
-    display: flex;
-    flex-direction: column;
     align-items: center;
-    margin-top:20px;
+    display: flex;
+    /* flex-direction: column; */
+    justify-content: center;
+    margin-top: 50px;
 }
+
+#contact_img {
+    margin-right: 50px;
+}
+
 #form_container {
     align-items: center;
     display: flex;
@@ -45,7 +51,6 @@
     align-self: center;
     background-color: #00B7FF;
     color: white;
-    
     height: 200px;
     text-align: center;
     width: 103%;
@@ -56,9 +61,9 @@
 /* --- classes --- */
 .form_contact {   
     box-shadow:5px 5px 5px 5px grey; 
-    /* margin-left: 400px; */
+    /* margin-left: 20px; */
     padding: 20px;
-    width:40%;
+    width: 30%;
 
 }
 .form_contact-header {
