@@ -11,6 +11,7 @@ const MongoStore = require("connect-mongo")(session);
 const logger       = require('morgan');
 const path         = require('path');
 const  bcrypt      =require("bcrypt")
+const nodemailer   = require("nodemailer")
 const app          = express();
 
 ////////////////////////////////////////////
@@ -67,6 +68,11 @@ app.use(session({
     // 1 day
   })
 }));
+
+
+
+
+
 
 const index = require('./routes/index');
 app.use('/', index);
