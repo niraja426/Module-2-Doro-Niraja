@@ -41,7 +41,9 @@ router.post("/login", (req, res, next) => {
         return;
       }
       if (bcrypt.compareSync(user.password, dbRes.password)) {
+        console.log("====== current user")
         req.session.currentUser = dbRes;
+        console.log(dbRes)
         
          
               res.redirect("/user")

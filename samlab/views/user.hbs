@@ -66,6 +66,19 @@
     </thead>
 
     <tbody class="table-body">
+      {{#each userTests}}
+        {{!-- {{#each this.tests_id}} --}}
+       
+        <tr>
+          {{#if this.tests_id}}
+          <td class="table-division">{{this.name}}</td>
+          {{/if}}
+          <td class="table-division">{{this.date}}</td>
+          <td class="table-division">{{this.status}}</td>
+          <td> <a href=""><i class="fas fa-calendar-times"></i> </a></td>
+        </tr>
+        {{!-- {{/each}} --}}
+      {{/each}}
       {{!-- <tr class="table-row">
       </tr> --}}
       {{!-- <tr>

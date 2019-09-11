@@ -55,7 +55,7 @@ function testSubmit(){
         <td class="table-division">${element.name}</td>
         <td class="table-division">${userTestsData.date}</td>
         <td class="table-division">${userTestsData.status}</td>
-         <td> <a href=""><i class="fas fa-calendar-times"></i> </a></td>`
+         <td> <a href="#"><i class="fas fa-calendar-times"></i> </a></td>`
     tableBody.prepend(row);
     values.forEach((element)=>{
       return (element.checked=false)

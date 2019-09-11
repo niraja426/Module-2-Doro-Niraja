@@ -5,19 +5,28 @@ const testModel = require("../models/Tests")
 const userTest = require("../models/User_test")
 const bcrypt = require("bcrypt")
 
+
+function getUserPreviousTests(id) {
+  return userTest.find({user_id: id}).populate("test_ids");
+}
+
+
 /* GET home page */
 router.get('/user', (req, res, next) => {
-  testModel.find()
-  .then((testList)=>{
-
-    console.log(req.session.currentUser)
-      res.render("user",{ tests:testList, user:req.session.currentUser});
-      // console.log(testList)
-   })
-  
- .catch((err)=>{
-  console.log("couldnot retrive the tests")
-});
+  getUserPreviousTests(req.session.currentUser._id)
+  .then(userTests => {
+    testModel.find()
+    .then(testList =>{
+        res.render("user",{
+          tests: testList,
+          user: req.session.currentUser,
+          userTests: userTests
+        });
+     })
+  })
+ .catch((err) => {
+    console.log("couldnot retrive the tests")
+  });
 });
 
 
@@ -41,8 +50,6 @@ router.post('/login/:id', (req, res, next) => {
 console.log(req.body  , "here")
   userModel.findByIdAndUpdate(req.params.id, req.body, {new : true}) //must new true
   .then((updatedUser) => {
-
-
       req.session.currentUser = updatedUser
       res.redirect('/user')
     
@@ -59,8 +66,11 @@ router.post("/user/test-submit", (req,res)=>{
   //console.log(req.body);
   // req.body holds the values stored in variablename "data" coming from axios post request
   // now, we enter this data(checked tests ) into database "user_test"
+
+  console.log(">>>>>", req.session.currentUser._id)
+
    userTest.create({
-        user_id: req.params.id,
+        user_id: req.session.currentUser._id,
         test_ids: req.body.data,
         status:"Pending",
         date: new Date()
