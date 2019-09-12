@@ -135,6 +135,20 @@
 
 }
 
+.deleteUserTest{
+  color:red;
+  font-size:18px;
+}
+.saveUserTest{
+  color:green;
+  font-size:18px;
+
+}
+.class-complete{
+  background-color: #42BB38;
+  color: white;
+}
+
 @media screen and (max-width: 750px) {
 
   .user-dashboard{

@@ -51,8 +51,10 @@
           <tr class="table-row">
             <th>TEST NAME</th>
             <th>START DATE</th>
+            <th>STD VALUE</th>
+            <th>RESULT</th>
             <th>STATUS</th>
-            <th>DELETE</th>
+            <th>ACTION</th>
           </tr>
       </thead>
 
@@ -61,16 +63,17 @@
               <tr>
                   <td class="table-division">{{this.test_ids.name}}</td>
                   <td class="table-division">{{this.date}}</td>
-                  <td class="table-division">{{this.status}}</td>
-                  <td><a href="/user/delete/{{this._id}}"><i class="fas fa-calendar-times deleteUserTest" id={{this._id}}></i></a></td>
+                  <td class="table-division">{{this.test_ids.normal_value}}</td>
+                  <td class="table-division"><input type="text" class="result-value" value={{this.result}}></td>
+              
+                  <td class="table-division status">{{this.status}}</td>
+                  <td>
+                      <a href="#"><i class="fas fa-save saveUserTest" id={{this._id}}></i></a>&nbsp;&nbsp;
+                      <a href="/user/delete/{{this._id}}"><i class="fas fa-calendar-times deleteUserTest" id={{this._id}}></i></a> 
+                    
+                  </td>
                 </tr>
           {{/each}}
-              <tr>
-                  <td class="table-division">Phospate in Blood</td>
-                  <td class="table-division">Wed Sep 11 2019 11:40:10 GMT+0200 (CEST)</td>
-                  <td class="table-division">Started</td>
-                  <td> <button class="delete" onclick="deleteTest()"><i class="fas fa-calendar-times"></i></button></td>
-              </tr>
     </tbody>
   </table>
 

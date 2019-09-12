@@ -53,9 +53,6 @@ router.post("/login", (req, res, next) => {
               res.redirect("/user")
               // console.log(testList)
           
-          //  .then((dbRes)=>{
-          //    res.render("user",{user:dbRes, tests:testList});//I needed two then because the scope of testList was not visible once it was outside of the testModel.find() promise. so I had to immediately put then after it got the data and in the second then, i rendered it
-          //  })
         return;
       } 
       

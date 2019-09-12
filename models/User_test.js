@@ -8,6 +8,7 @@ const userTestSchema= new Schema({
      },
     test_ids:{type: Schema.Types.ObjectId, ref:"test"},/// array of object
     date:Date,
+    result:String,
     status:String,
     
 })

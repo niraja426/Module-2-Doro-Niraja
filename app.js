@@ -78,28 +78,8 @@ function checkloginStatus(req, res, next) {
   // access this value @ {{isLoggedIn}} in .hbs
   next(); // continue to the requested route
 }
-//extra added by myself
-// function eraseSessionMessage() {
-//   var count = 0; // initialize counter in parent scope and use it in inner function
-//   return function(req, res, next) {
-//     if (req.session.msg) {
-//       // only increment if session contains msg
-//       if (count) {
-//         // if count greater than 0
-//         count = 0; // reset counter
-//         req.session.msg = null; // reset message
-//       }
-//       ++count; // increment counter
-//     }
-//     next(); // continue to the requested route
-//   };
-// }
 
 app.use(checkloginStatus);
-// app.use(eraseSessionMessage());
-//end extra added 
-
-
 
 
 const index = require('./routes/index');

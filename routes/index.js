@@ -24,23 +24,6 @@ router.get("/login",(req, res, next) =>{
 });
 
 
-/* --- POST home page reqests --- */
-// router.post("/message-sent", (req, res, next) => {
-//   res.render("message_sent");
-// })
-
-// router.post('/message-sent', (req, res, next) => {
-//   let { email, subject, message } = req.body;
-//   res.render('message_sent', { email, subject, message })
-// });
-
-// let transporter = nodemailer.createTransport({
-//   service: 'Gmail',
-//   auth: {
-//     user: process.env.EMAIL,
-//     pass: process.env.PASSWORD 
-//   }
-// });
 
 router.post('/message-sent', (req, res, next) => {
   console.log(req.body)
@@ -63,28 +46,6 @@ router.post('/message-sent', (req, res, next) => {
   .then(info => res.render('message_sent', {email, subject, message,}))
   .catch(error => console.log(error));
 });
-
-
-
-// router.post('/submittest/:id', (req, res,next) => {
-// const {testList}=req.body;
-// console.log(req.body)
-//  console.log(req.session.currentUser)
-
-//  userTest.create({
-//    user_id: req.params.id,
-//    test_ids: req.body.testList
-//  }).then(userTest => {
-//    console.log(userTest)
-//    res.render("/user")
-//  }).catch(err => console.log(err))
-
-// });
-
-
-
-
-
 
 
 module.exports = router;

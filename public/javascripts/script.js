@@ -29,6 +29,7 @@ function showSlides() {
 
 // ajax delete function
 document.addEventListener('click', function(e){
+  // for user test delete
   if(e.target.classList.contains("deleteUserTest")){
     // stop the default action of <a> from re-directing
     e.preventDefault()
@@ -42,6 +43,29 @@ document.addEventListener('click', function(e){
     })
     .catch((err)=>{
       console.error(err)
+    })
+  }
+
+  else if(e.target.classList.contains("saveUserTest")){
+    e.preventDefault()
+    id=e.target.id;
+    var parentrow =e.target.parentElement.parentElement.parentElement
+    var child = parentrow.querySelector(".result-value")
+
+    var result=child.value.trim()
+    if (result.length===0){
+      alert("Empty Result!!!") 
+      return;
+    } 
+    axios.patch(`/user/update/${id}`,{
+      data:result
+    })
+    .then((dbRes)=>{
+      console.log(parentrow.querySelector(".status"))
+      parentrow.querySelector(".status").innerText="COMPLETE"
+      parentrow.querySelector(".status").classList.add("class-complete");
+
+
     })
   }
 });
@@ -78,8 +102,13 @@ function testSubmit(){
       row.innerHTML=`
         <td class="table-division">${testsData[index].name}</td>
         <td class="table-division">${element.date}</td>
-        <td class="table-division">${element.status}</td>
-        <td><a href="/user/delete/${element._id}"><i class="fas fa-calendar-times deleteUserTest" id=${element._id}></i></a></td>`
+        <td class="table-division">${testsData[index].normal_value}</td>
+        <td class="table-division"><input type="text" class="result-value" value=${element.result}></td>
+        <td class="table-division status">${element.status}</td>
+        <td>
+        <a href="#"><i class="fas fa-save saveUserTest" id=${element._id}></i></a>&nbsp;&nbsp;
+        <a href="/user/delete/${element._id}"><i class="fas fa-calendar-times deleteUserTest" id=${element._id}></i></a>
+        </td>`
     tableBody.prepend(row);
     values.forEach((element)=>{
       return (element.checked=false)

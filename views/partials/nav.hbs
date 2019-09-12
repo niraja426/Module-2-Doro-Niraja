@@ -1,7 +1,12 @@
 <div class="nav-container">
     <div class="nav-logo">
         <img src="/images/logo.png" alt="logo"> 
-</div>
+    </div>
+
+    <div class="lab-name">
+        <h2>XYZ &nbsp;LABS</h2>
+
+    </div>
 
 
 
@@ -9,10 +14,12 @@
         <a href="/">Home</a>
         <a href="/about">About Us</a>
         <a href="/contact">Contact Us</a>
-        <a href="/login">Login/Signup</a>
         {{#if isLoggedIn }} 
-            <a href="/logout"><i class="fas fa-stop-circle logout"></i></a>
+            <a href="/logout"><i class="fas fa-power-off logout"></i></a>
             <a href="/user"><i class="fas fa-user logout"></i></a>
+        {{else}}
+                <a href="/login">Login/Signup</a>
+
         {{/if}}
     </nav>
 

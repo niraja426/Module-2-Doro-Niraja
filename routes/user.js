@@ -68,11 +68,9 @@ router.post('/login/:id', (req, res, next) => {
 
 // capturing the ajax request
 router.post("/user/test-submit", (req,res)=>{
-  //console.log(req.body);
   // req.body holds the values stored in variablename "data" coming from axios post request
   // now, we enter this data(checked tests ) into database "user_test"
 
-  // console.log(">>>>>", req.session.currentUser._id)
   test_idsList=req.body.data;
   var dataToInsert=[];
   var date=new Date();
@@ -81,7 +79,8 @@ router.post("/user/test-submit", (req,res)=>{
       user_id: req.session.currentUser._id,
         test_ids:element,
         status:"Pending",
-        date: date
+        date: date,
+        result:""
     }
 
     dataToInsert.push(myObject);
@@ -91,8 +90,6 @@ router.post("/user/test-submit", (req,res)=>{
 
    userTest.insertMany(dataToInsert)
       .then(dbRes => { //upon successful insertion of data into database,we search for these corresponding ids(which was in "data" variable) in the tests collection 
-      console.log("/n ******************after insert Many")
-      console.log(dbRes)
       var testIdsToSearch=[];
          dbRes.forEach((element)=>{
            testIdsToSearch.push(element.test_ids)
@@ -115,32 +112,28 @@ router.post("/user/test-submit", (req,res)=>{
       
 })
 
-
-// axios.delete(URL, {
-//   data: response
-//  })
 router.delete('/user/delete/:id', (req, res, next) => {
-  console.log("I am inside delete");
-  console.log(req.params.id)
-  userTest.findByIdAndDelete(req.params.id)
-  .then((dbRes) => {
-    res.send("deleted")
-  })
-  .catch((dbErr) => {
-    console.error(dbErr)
-  })
-  
+
+    userTest.findByIdAndDelete(req.params.id)
+    .then((dbRes) => {
+      res.send("deleted")
+    })
+    .catch((dbErr) => {
+      console.error(dbErr)
+    })
   
 })
-  // userModel.findById( {_id:req.params.id} )
-  // .then((dbRes) => {
-  //   res.render('edit_profile', {user:dbRes})
-  // })
-  // .catch((dbErr) => {
-  //   console.log('can not update proberly', dbErr)
-  //   res.redirect('/login')
-  // });
 
-
+router.patch('/user/update/:id', (req, res, next) => {
+  
+      userTest.findByIdAndUpdate(req.params.id,{result:req.body.data,status:"COMPLETE"})
+      .then((dbRes) => {
+        res.send("update ok ")
+      })
+      .catch((dbErr) => {
+        console.error(dbErr)
+      })
+})
+  
 
 module.exports = router;
