@@ -40,6 +40,7 @@ h1, h2, h3 {
   height:100%;
 }
 
+
 .nav-list{
   width: 70%;
   text-align: right;
@@ -59,15 +60,19 @@ h1, h2, h3 {
   color: #00B7FF;
 }
 
+.banner-container{
+  height:400px;
+  width: 100%;
+  overflow: hidden;
+}
+
 .lab-banner{
   width:100%;
-  height:450px;
-  
+  overflow:hidden;
 }
 
 .lab-banner img{
   width:100%;
-  height:100%
 }
 
 .fade {
@@ -96,7 +101,6 @@ h1, h2, h3 {
   z-index: 9;
 }
 
-
 .note1{
   background: rgb(54, 168, 235);
   width:25%;
@@ -106,33 +110,11 @@ h1, h2, h3 {
   border:2px solid white;
 
 }
-.note2{
-  background:#088EDD;
-  width:25%;
-  height:200px;
-  margin-right:10px;
-  padding:20px;
-  border:2px solid white;
-}
-
-.note3{
-  background:#1977CC;
-  width:25%;
-  height:200px;
-  margin-right:20px;  
-  padding:20px;
-  border:2px solid white;
-}
 
 .note1:hover {
   transform: scale(1.1); 
 }
-.note2:hover {
-  transform: scale(1.1); 
-}
-.note3:hover {
-  transform: scale(1.1); 
-}
+
 
 .note-icons{
   
@@ -169,8 +151,7 @@ h1, h2, h3 {
 
 .footer-container{
   background: #506171;
-  width:100%;
-  height: 280px;
+  width:100%; 
 }
 
 .foot{
@@ -276,4 +257,49 @@ h1, h2, h3 {
   .loginIcon{
     font-size: 45px;
   }
+  .logout{
+    font-size:30px;
+  }
+
+  @media screen and (max-width: 750px) {
+
+    .notes{
+      flex-direction: column;
+      text-align: center;
+    }
+    .note1{
+      width: 100%;
+      text-align: center;
+
+    }
+    .foot{
+      flex-direction: column;
+      text-align: center;
+
+    }
+    .footer-about{
+      width:100%;
+      text-align: center;
+    }
+
+    .footer-contact{
+      width:100%;
+      text-align: center;
+    }
+    .footer-stayConnected{
+      width:100%;
+      text-align: center;
+    }
+
+
+    .login-form{
+      width:100%;
+    }
+
+    .signup-form{
+      width:100%
+    }
+
+  }
+
 

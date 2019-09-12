@@ -130,5 +130,51 @@
   transform: scale(0.8); 
 }
 
+.add-test i{
+  color:black;
+
+}
+
+@media screen and (max-width: 750px) {
+
+  .user-dashboard{
+    flex-direction: column;
+    text-align: center;
+  }
+  .test-container{
+    width: 100%;
+  }
+  .table-container{
+    width:100%;
+    text-align: center;
+    margin-top:50px;
+
+  }
+  .footer-about{
+    width:100%;
+    text-align: center;
+  }
+
+  .footer-contact{
+    width:100%;
+    text-align: center;
+  }
+  .footer-stayConnected{
+    width:100%;
+    text-align: center;
+  }
+
+
+  .login-form{
+    width:100%;
+  }
+
+  .signup-form{
+    width:100%
+  }
+
+}
+
+
 
 

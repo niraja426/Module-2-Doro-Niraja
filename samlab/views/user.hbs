@@ -1,90 +1,80 @@
  <div class="welcome-container">
       <div class="user-image item"> 
-          <i class="fas fa-user-circle"></i>
+        <i class="fas fa-user-circle"></i>
       </div> 
       {{!-- end of golo image div --}}
 
-    <div class="welcome-user">
+     <div class="welcome-user">
         <h3 >Welcome <span id="logged-user-name">{{user.username}}</span></h3>
       	<p><i class="fas fa-envelope-open-text"></i> {{user.email}}</a>&nbsp; &nbsp; &nbsp;<i class="fas fa-phone-square"></i> {{user.phone}}</p>
-			<p><i class="fas fa-map-marked-alt"></i> {{user.address}}</p>
-    </div>
+			  <p><i class="fas fa-map-marked-alt"></i> {{user.address}}</p>
+     </div>
 
-    
-
-    <div class="item">
-      <a href="/login/{{user._id}}"><button class="edit-btn">EDIT PROFILE</button></a>
-    </div>
+  
+     <div class="item">
+        <a href="/login/{{user._id}}"><button class="edit-btn">EDIT PROFILE</button></a>
+     </div>
     
   </div>
   {{!-- end of welcome container --}}
 
 <div class="user-dashboard">
    <div class="test-container">
-    <h3>AVAILABLE TESTS</h3>
+    <h3>AVAILABLE TESTS</h3> <span><a href="#" class="add-test"><i class="fas fa-plus-circle">Add Tests</i></a></span>
     <hr>
-    {{!-- <form action="/submittest/{{user._id}}" method="post"> --}}
-       <ul >
-      {{#each tests}}
-      <li class="listHolder"> 
-        <input class="testCheckBox" type="checkbox" name="testList" value="{{this._id}}"> {{this.name}}
-         <span class="popup">
-           <div class="popup-title">
-              <h3>{{this.name}}</h3>
-              <h4> &euro; {{this.price}}</h4>
-           </div>
-          
-           <p>{{this.description}}</p>
-
-         </span>
-      </li>
-      {{/each}}
+    <ul >
+        {{#each tests}}
+            <li class="listHolder"> 
+                <input class="testCheckBox" id="{{this._id}}" type="checkbox" name="testList" value="{{this._id}}"> 
+                <label for="{{this._id}}">{{this.name}}</label>
+                  <span class="popup">
+                    <div class="popup-title">
+                        <h3>{{this.name}}</h3>
+                        <h4> &euro; {{this.price}}</h4>
+                    </div>
+              
+                    <p>{{this.description}}</p>
+                  </span>
+            </li>
+        {{/each}}
     </ul>
+
     <div class="test-submit-button-container">
        <button class="button-primary test" id="test-submit" onclick="testSubmit()">Submit</button>
     </div>
-    
-    {{!-- </form> --}}
-   
-
   </div>
 
 <div class="table-container"> 
 
     <table class="main-table" >
-    <thead>
-      <tr class="table-row">
-        <th>TEST NAME</th>
-        <th>START DATE</th>
-        <th>STATUS</th>
-        <th>DELETE</th>
-      </tr>
-    </thead>
+      <thead>
+          <tr class="table-row">
+            <th>TEST NAME</th>
+            <th>START DATE</th>
+            <th>STATUS</th>
+            <th>DELETE</th>
+          </tr>
+      </thead>
 
-    <tbody class="table-body">
-    
-      {{#each userTests}}
-
-       <tr>
-          <td class="table-division">{{this.test_ids.name}}</td>
-          <td class="table-division">{{this.date}}</td>
-          <td class="table-division">{{this.status}}</td>
-          <td><a href="/user/delete/{{this._id}}"><i class="fas fa-calendar-times deleteUserTest" id={{this._id}}></i></a></td>
-        </tr>
-      {{/each}}
-      
-      <tr>
-          <td class="table-division">Phospate in Blood</td>
-          <td class="table-division">Wed Sep 11 2019 11:40:10 GMT+0200 (CEST)</td>
-          <td class="table-division">Started</td>
-           <td> <button class="delete" onclick="deleteTest()"><i class="fas fa-calendar-times"></i></button></td>
-      </tr>
-       
+      <tbody class="table-body">
+          {{#each userTests}}
+              <tr>
+                  <td class="table-division">{{this.test_ids.name}}</td>
+                  <td class="table-division">{{this.date}}</td>
+                  <td class="table-division">{{this.status}}</td>
+                  <td><a href="/user/delete/{{this._id}}"><i class="fas fa-calendar-times deleteUserTest" id={{this._id}}></i></a></td>
+                </tr>
+          {{/each}}
+              <tr>
+                  <td class="table-division">Phospate in Blood</td>
+                  <td class="table-division">Wed Sep 11 2019 11:40:10 GMT+0200 (CEST)</td>
+                  <td class="table-division">Started</td>
+                  <td> <button class="delete" onclick="deleteTest()"><i class="fas fa-calendar-times"></i></button></td>
+              </tr>
     </tbody>
   </table>
 
-  </div>
-
-
+</div>
+  {{!-- end of table-container --}}
   
 </div>
