@@ -24,7 +24,11 @@ router.post("/signup", (req, res, next) => {
         user.password = hashed;
         userModel
           .create(user)
-          .then(() => res.render("user",{user}))
+          .then((dbRes) => {
+            req.session.currentUser = dbRes;
+            res.redirect("/user")
+          })
+          
           .catch((err)=>console.log(err));
       });
 });
@@ -44,8 +48,8 @@ router.post("/login", (req, res, next) => {
         console.log("====== current user")
         req.session.currentUser = dbRes;
         console.log(dbRes)
-        
-         
+
+  
               res.redirect("/user")
               // console.log(testList)
           
