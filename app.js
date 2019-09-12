@@ -11,7 +11,7 @@ const MongoStore = require("connect-mongo")(session);
 const logger       = require('morgan');
 const path         = require('path');
 const  bcrypt      =require("bcrypt")
-const nodemailer   = require("nodemailer")
+
 const app          = express();
 
 ////////////////////////////////////////////

@@ -3,8 +3,7 @@ const router  = express.Router();
 const userModel=require("./../models/Users");
 const testModel = require("../models/Tests");
 const userTest = require("../models/User_test"); 
-const axios=require("axios");
-const bcrypt = require("bcrypt");
+
 
 
 function getUserPreviousTests(id) {
