@@ -27,9 +27,30 @@ function showSlides() {
   
 }
 
+// ajax delete function
+document.addEventListener('click', function(e){
+  if(e.target.classList.contains("deleteUserTest")){
+    // stop the default action of <a> from re-directing
+    e.preventDefault()
+    id = e.target.id
+    console.log("my id ", id)
+    axios.delete(`/user/delete/${id}`)
+    .then((res)=>{
+      e.target.parentElement.parentElement.parentElement.remove()
+      console.log("successfully deleted", res)
+
+    })
+    .catch((err)=>{
+      console.error(err)
+    })
+  }
+});
+// document.getElementById('fetch-one').onclick = function(e){
+  // e.preventDefault()
+
 function testSubmit(){
   const buttontoSubmit=document.getElementById("test-submit")
-  buttontoSubmit.classList.add("button-clicked")
+  
   const values=document.querySelectorAll(".testCheckBox")//got all the checkboxes
   var selectedItems=[];
 //  checking which boxes are checked and if checked, its value(which contains the id.. see user.hbs) is pushed into the selectedItems array
@@ -38,6 +59,10 @@ function testSubmit(){
       selectedItems.push(element.value)
     }
   })
+  if (selectedItems.length<1){
+    return;
+  }
+  buttontoSubmit.classList.add("button-clicked")
 //
 // now , ajax sends the array of this checked values which is in selectedItem array by  post request to the route ('/user/test-submit').. now ,so.. go to this route which is in user.js and available by the variablename "data"
   axios.post('/user/test-submit', {
@@ -46,16 +71,15 @@ function testSubmit(){
   .then(function (response) {//you are back from user.js ..response.data ma uta bata pathako variables tests and userTests huncha
     var testsData=response.data.tests;
     var userTestsData=response.data.userTests;
-    console.log(response.data.userTests)
-    testsData.forEach((element,index)=>{
-      console.log("the index is", index)
+    // console.log(response.data)
+    userTestsData.forEach((element,index)=>{
 
       var row=document.createElement("tr")
       row.innerHTML=`
-        <td class="table-division">${element.name}</td>
-        <td class="table-division">${userTestsData.date}</td>
-        <td class="table-division">${userTestsData.status}</td>
-         <td> <a href="#"><i class="fas fa-calendar-times"></i> </a></td>`
+        <td class="table-division">${testsData[index].name}</td>
+        <td class="table-division">${element.date}</td>
+        <td class="table-division">${element.status}</td>
+        <td><a href="/user/delete/${element._id}"><i class="fas fa-calendar-times deleteUserTest" id=${element._id}></i></a></td>`
     tableBody.prepend(row);
     values.forEach((element)=>{
       return (element.checked=false)
@@ -71,8 +95,6 @@ function testSubmit(){
   });
 
 }
-
-console.log(new Date())
 
 
 

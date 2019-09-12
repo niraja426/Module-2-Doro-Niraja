@@ -6,7 +6,7 @@ const userTestSchema= new Schema({
         type:Schema.Types.ObjectId,
         ref:"user"
      },
-    test_ids:[{type: Schema.Types.ObjectId, ref:"test"}],/// array of object
+    test_ids:{type: Schema.Types.ObjectId, ref:"test"},/// array of object
     date:Date,
     status:String,
     
