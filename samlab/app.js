@@ -111,4 +111,7 @@ app.use(auth);
 const user=require("./routes/user")
 app.use(user);
 
+const test=require("./routes/add")
+app.use(test);
+
 module.exports = app;
